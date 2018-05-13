@@ -158,8 +158,8 @@ Postman [https://www.getpostman.com/](https://www.getpostman.com/)
 ```
     ├─POST───/registros/detalle     * Guarda. 
     ├─Body─{
-        "id_registro": 1,
-		"id_producto": 1,
-		"cantidad": 1
+    	"id_registro": 1,
+    	"id_producto": 1,
+    	"cantidad": 1
     }  
 ```
