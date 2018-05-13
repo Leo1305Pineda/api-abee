@@ -1,0 +1,24 @@
+{
+  "name": "api-abee",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./app.js",
+    "abee": "bash abee.sh",
+    "update:db": "psql abeedb < $PWD/db/abeedb.sql",
+    "remove:db": "dropdb -e --if-exists -h localhost -p 5432 -U postgres abeedb",
+    "create:db": "sudo -u postgres psql -c 'create database abeedb;'",
+    "histori:db": "pg_dump abeedb -h localhost -p 5432 -U postgres -F p -b -v -f $PWD/db/abeedb$(date +%s).hsql",
+    "backup:db": "npm run histori:db && pg_dump abeedb -h localhost -p 5432 -U postgres -F p -b -f $PWD/db/abeedb.sql",
+    "restore:db": "npm run remove:db && npm run create:db && npm run update:db"
+  },
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "bookshelf": "^0.12.1",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "morgan": "~1.8.1",
+    "knex": "^0.13.0",
+    "pg": "^7.4.1"
+  }
+}
