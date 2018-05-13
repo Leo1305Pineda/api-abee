@@ -3,15 +3,14 @@ api-abee para el registro de factura digital
 
 # Informacion sobre las rutas
 
-Informacion sobre el contenido manejado sobre cada rutas de la api-sascha
-
-# Tabla de contenido 
+## Tabla de contenido 
 * [Host | Port](#host-port)
 * [Test](#test)
 * [Modelo Generico](#modelo-generico)
 * [Maestros](#maestros)
     * [clientes](#clientes)
     * [monedas](#monedas)
+    * [productos](#productos)
 * [registros](#registros)
 * [detalle](#detalle)
 
@@ -92,12 +91,12 @@ Postman [https://www.getpostman.com/](https://www.getpostman.com/)
     ├─PUT────/cliente/:id   * Actualiza.
     ├─DELETE─/cliente/:id   * Elimina.
     ├─Body─{
-        "nombres":"" ,
-		"apellidos":"" ,
-		"identificacion":"" ,
-		"edad":"" ,
-		"telefono":"" ,
-		"direccion":""
+        "nombres": "" ,
+		"apellidos": "" ,
+		"identificacion": "" ,
+		"edad": "" ,
+		"telefono": "" ,
+		"direccion": ""
     }  
 ```
 
@@ -130,8 +129,8 @@ Postman [https://www.getpostman.com/](https://www.getpostman.com/)
     ├─Body─{
         "nombre": "",
     	"descripcion": "",
-    	"url_imagen":"",
-    	"precio":0
+    	"url_imagen": "",
+    	"precio": 0
     }  
 ```
 
@@ -142,9 +141,25 @@ Postman [https://www.getpostman.com/](https://www.getpostman.com/)
 
 ```
     ├─POST───/registros     		* Guarda. 
-    ├─POST───//registros/detalle    * Guarda. 
     ├─Body─{
-        "nombre": "",
-        "simbolo": ""
+        "id_cliente": 1,
+		"id_moneda": 1,
+		"contingencia": "no",
+		"exoneracion": "no",
+		"credito": "no",
+		"dias": 0,
+		"descuento": "",
+		"observaciones": ""
+    }  
+```
+
+# detalle
+
+```
+    ├─POST───/registros/detalle     * Guarda. 
+    ├─Body─{
+        "id_registro": 1,
+		"id_producto": 1,
+		"cantidad": 1
     }  
 ```
